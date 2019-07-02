@@ -41,6 +41,9 @@ public extension EKAttributes {
         /** Clear background style */
         case clear
         
+        /** custom view style */
+        case custom(view: UIView)
+        
         /** == operator overload */
         public static func == (lhs: EKAttributes.BackgroundStyle, rhs: EKAttributes.BackgroundStyle) -> Bool {
             switch (lhs, rhs) {
@@ -59,6 +62,8 @@ public extension EKAttributes {
                 return leftGradient.startPoint == rightGradient.startPoint && leftGradient.endPoint == rightGradient.endPoint
             case (clear, clear):
                 return true
+            case (custom(view: let leftView), custom(view: let rightView)):
+                return leftView == rightView
             default:
                 return false
             }

@@ -14,6 +14,7 @@ class EKBackgroundView: EKStyleView {
     private let visualEffectView: UIVisualEffectView
     private let imageView: UIImageView
     private let gradientView: GradientView
+    private var customView: UIView?
     
     // MARK: Setup
     init() {
@@ -60,6 +61,13 @@ class EKBackgroundView: EKStyleView {
                 backgroundEffect = UIBlurEffect(style: style)
             case .clear:
                 break
+            case .custom(view: let view):
+                if customView?.superview != self {
+                    customView?.removeFromSuperview()
+                    customView = view
+                    addSubview(view)
+                    view.fillSuperview()
+                }
             }
         
             gradientView.gradient = gradient
