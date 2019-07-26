@@ -201,6 +201,7 @@ struct PresetsDataSource {
         
         // Preset IV
         attributes = .topNote
+        attributes.screenBackground = .color(color: .dimmedDarkBackground)
         attributes.hapticFeedbackType = .success
         attributes.displayDuration = 5
         attributes.popBehavior = .animated(animation: .translation)
@@ -214,8 +215,8 @@ struct PresetsDataSource {
         
         // Preset V
         attributes = .statusBar
-        attributes.precedence.category = "statusBar"
         attributes.hapticFeedbackType = .success
+        attributes.displayDuration = 7
         attributes.popBehavior = .animated(animation: .translation)
         attributes.entryBackground = .color(color: .greenGrass)
         descriptionString = "Overrides the status bar"

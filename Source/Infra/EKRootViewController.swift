@@ -138,10 +138,8 @@ class EKRootViewController: UIViewController {
         // Assign attributes
         let previousAttributes = lastAttributes
         
-        if attributes.precedence.category == previousAttributes?.precedence.category {
-            // Remove the last entry
-            removeLastEntry(lastAttributes: previousAttributes, keepWindow: true)
-        }
+        // Remove the last entry
+        removeLastEntry(lastAttributes: previousAttributes, keepWindow: true)
         
         lastAttributes = attributes
         
@@ -168,9 +166,6 @@ class EKRootViewController: UIViewController {
     // Check priority precedence for a given entry
     func canDisplay(attributes: EKAttributes) -> Bool {
         guard let lastAttributes = lastAttributes else {
-            return true
-        }
-        if attributes.precedence.category != lastAttributes.precedence.category {
             return true
         }
         return attributes.precedence.priority >= lastAttributes.precedence.priority
