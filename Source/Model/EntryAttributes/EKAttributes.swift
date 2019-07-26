@@ -28,7 +28,7 @@ public struct EKAttributes {
     public var position = Position.top
 
     /** The display manner of the entry. */
-    public var precedence = Precedence.override(priority: .normal, dropEnqueuedEntries: false)
+    public var precedence = Precedence.override(priority: .normal, dropEnqueuedEntries: false, category: Precedence.defaultCategory)
     
     /** Describes how long the entry is displayed before it is dismissed */
     public var displayDuration: DisplayDuration = 2 // Use .infinity for infinite duration

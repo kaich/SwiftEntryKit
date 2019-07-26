@@ -12,7 +12,7 @@ class ContactsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private let dataSource = ["John", "Gregory", "David", "Jack", "Tony", "Torvi", "Walter", "Dexter", "Ramsay"]
+    private let dataSource = ["John", "Gregory", "David", "Jack", "Tony", "Torvi", "Walter", "Dexter", "Ramsay","Ramsay" , "Ramsay", "Ramsay"]
     
     init() {
         super.init(nibName: type(of: self).className, bundle: nil)
@@ -32,6 +32,7 @@ class ContactsViewController: UIViewController {
 // MARK: UITableViewDelegate, UITableViewDataSource
 
 extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -47,4 +48,5 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = DescriptionViewController(screenTitle: dataSource[indexPath.row])
         navigationController!.pushViewController(vc, animated: true)
     }
+    
 }

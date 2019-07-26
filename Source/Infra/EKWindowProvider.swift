@@ -88,7 +88,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
      */
     private func display(entryView: EKEntryView, using attributes: EKAttributes, presentInsideKeyWindow: Bool, rollbackWindow: SwiftEntryKit.RollbackWindow) {
         switch entryView.attributes.precedence {
-        case .override(priority: _, dropEnqueuedEntries: let dropEnqueuedEntries):
+        case .override(priority: _, dropEnqueuedEntries: let dropEnqueuedEntries, category: _):
             if dropEnqueuedEntries {
                 entryQueue.removeAll()
             }

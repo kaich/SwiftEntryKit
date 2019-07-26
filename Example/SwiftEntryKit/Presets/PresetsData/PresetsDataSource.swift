@@ -214,6 +214,7 @@ struct PresetsDataSource {
         
         // Preset V
         attributes = .statusBar
+        attributes.precedence.category = "statusBar"
         attributes.hapticFeedbackType = .success
         attributes.popBehavior = .animated(animation: .translation)
         attributes.entryBackground = .color(color: .greenGrass)
@@ -265,7 +266,7 @@ struct PresetsDataSource {
         attributes.entryInteraction = .delayExit(by: 3)
         attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
         attributes.statusBar = .dark
-        attributes.positionConstraints.maxSize = .init(width: .constant(value: UIScreen.main.minEdge), height: .intrinsic)
+//        attributes.positionConstraints.maxSize = .init(width: .constant(value: UIScreen.main.minEdge), height: .intrinsic)
         descriptionString = "Bottom float with gradient background. Touches delay exit"
         descriptionThumb = ThumbDesc.bottomFloat.rawValue
         description = .init(with: attributes, title: "Bottom", description: descriptionString, thumb: descriptionThumb)

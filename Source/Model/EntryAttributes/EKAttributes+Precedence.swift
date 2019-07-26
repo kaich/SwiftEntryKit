@@ -21,6 +21,8 @@ public extension EKAttributes {
      */
     enum Precedence {
         
+        public static let defaultCategory = "PrecedenceDefaultCategory"
+        
         /**
          The display priority of the entry - Determines whether is can be overriden by other entries.
          Must be in range [0...1000]
@@ -81,14 +83,14 @@ public extension EKAttributes {
          - In case no previous entry is currently presented, display the new entry.
          - In case there is an entry that is currently presented - override it using the new entry. Also optionally drop all previously enqueued entries.
          */
-        case override(priority: Priority, dropEnqueuedEntries: Bool)
+        case override(priority: Priority, dropEnqueuedEntries: Bool, category: String)
         
         /**
          Describes a FIFO behavior for an entry presentation.
          - In case no previous entry is currently presented, display the new entry.
          - In case there is an entry that is currently presented - enqueue the new entry, an present it just after the previous one is dismissed.
          */
-        case enqueue(priority: Priority)
+        case enqueue(priority: Priority, category: String)
         
         var isEnqueue: Bool {
             switch self {
@@ -103,18 +105,38 @@ public extension EKAttributes {
         public var priority: Priority {
             set {
                 switch self {
-                case .enqueue(priority: _):
-                    self = .enqueue(priority: newValue)
-                case .override(priority: _, dropEnqueuedEntries: let dropEnqueuedEntries):
-                    self = .override(priority: newValue, dropEnqueuedEntries: dropEnqueuedEntries)
+                case .enqueue(priority: _, category: let category):
+                    self = .enqueue(priority: newValue, category: category)
+                case .override(priority: _, dropEnqueuedEntries: let dropEnqueuedEntries, category: let category):
+                    self = .override(priority: newValue, dropEnqueuedEntries: dropEnqueuedEntries, category: category)
                 }
             }
             get {
                 switch self {
-                case .enqueue(priority: let priority):
+                case .enqueue(priority: let priority, category: _):
                     return priority
-                case .override(priority: let priority, dropEnqueuedEntries: _):
+                case .override(priority: let priority, dropEnqueuedEntries: _, category: _):
                     return priority
+                }
+            }
+        }
+        
+        /** Setter / Getter for the display category. Different category can show same time */
+        public var category: String {
+            set {
+                switch self {
+                case .enqueue(priority: let priority, category: _):
+                    self = .enqueue(priority: priority, category: newValue)
+                case .override(priority: let priority, dropEnqueuedEntries: let dropEnqueuedEntries, category: _):
+                    self = .override(priority: priority, dropEnqueuedEntries: dropEnqueuedEntries, category: newValue)
+                }
+            }
+            get {
+                switch self {
+                case .enqueue(priority: _, category: let category):
+                    return category
+                case .override(priority: _, dropEnqueuedEntries: _, category: let category):
+                    return category
                 }
             }
         }
