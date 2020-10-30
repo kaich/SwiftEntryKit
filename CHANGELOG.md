@@ -1,6 +1,48 @@
 # Change Log
 Any notable changes to this project will be documented in this file.
 
+## 1.2.6
+
+### Features
+
+https://github.com/huri000/SwiftEntryKit/pull/307
+
+### Fixes
+
+Setting key window correctly:
+See https://github.com/huri000/SwiftEntryKit/issues/308 and https://github.com/huri000/SwiftEntryKit/pull/309.
+
+## 1.2.5
+
+### Accessibility
+
+- https://github.com/huri000/SwiftEntryKit/issues/222
+- https://github.com/huri000/SwiftEntryKit/issues/294
+
+## 1.2.4
+
+### Fixes
+- Remove scene from window: https://github.com/huri000/SwiftEntryKit/pull/299
+- Added size option for EKRatingSymbolsContainerView: https://github.com/huri000/SwiftEntryKit/pull/266
+- Access the foreground active window using connectedScenes: https://github.com/huri000/SwiftEntryKit/pull/257
+
+### Chore
+- Fix CI: https://github.com/huri000/SwiftEntryKit/pull/300
+
+## 1.2.3
+Fix #253 - force unwrap for `EKMessageContentView`'s `subtitleContent` when `nil` is provided.
+
+## 1.2.1
+Expose `EKWindow` publicly as `UIWindow`.
+Add a warning for misuse of `EKAttributes.PopBehavior`.
+
+## 1.2.0
+Adjustment for iOS projects are are using `SwiftUI` as their default setup in their `plist`.
+
+
+## 1.1.4
+Fixes: #231 (iPad + iOS13) entries background is not interactable. 
+
 ## 1.1.3
 Fix `SPM` release
 

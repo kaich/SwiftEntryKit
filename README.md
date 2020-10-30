@@ -8,13 +8,9 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
 ![](https://travis-ci.com/huri000/SwiftEntryKit.svg?branch=master)
 
-## What's New?
-### 🌑 `1.1.3` - let there be dark
-`SwiftEntryKit` is now dark mode ready, and user interface styles are supported pre iOS 13 / Xcode 11!
+ 🤗 Donations can be made [here](#donations).
 
-To know more about it, visit [Change Log](https://github.com/huri000/SwiftEntryKit/blob/master/CHANGELOG.md#110), and install the [example project](#example-project-installation).
-### 🤖 `1.0.4` - automata 
-Accessibility in presets is now supported, enabling all kinds of robotic activity for host projects.
+## Table of Contents
 
 * [Overview](#overview)
   * [Features](#features)
@@ -59,6 +55,7 @@ Accessibility in presets is now supported, enabling all kinds of robotic activit
   * [Dealing With Orientation Change](#dealing-with-orientation-change)
   * [Swift and Objective-C Interoperability](#swift-and-objective-c-interoperability)
 * [Author](#author)
+* [Donations](#donations)
 * [License](#license)
 
 ## Overview
@@ -133,7 +130,7 @@ The Playground Screen | Top Toast Sample
 - Xcode 9 or any higher version.
 - Swift 4.0 or any higher version.
 - The library has not been tested with iOS 8.x.y or a lower version.
-- SwiftEntryKit leans heavily on [QuickLayout](https://github.com/huri000/QuickLayout) - A lightwight library written in Swift that is used to easily layout views programmatically.
+- SwiftEntryKit leans heavily on [QuickLayout](https://github.com/huri000/QuickLayout) - A lightweight library written in Swift that is used to easily layout views programmatically.
 
 ## Installation
 
@@ -156,7 +153,7 @@ source 'https://github.com/cocoapods/specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
-pod 'SwiftEntryKit', '1.1.3'
+pod 'SwiftEntryKit', '1.2.6'
 ```
 
 Then, run the following command:
@@ -179,7 +176,7 @@ $ brew install carthage
 To integrate SwiftEntryKit into your Xcode project using Carthage, specify the following in your `Cartfile`:
 
 ```ogdl
-github "huri000/SwiftEntryKit" == 1.1.3
+github "huri000/SwiftEntryKit" == 1.2.6
 ```
 
 ### Accio
@@ -196,7 +193,7 @@ $ brew install accio
 To integrate SwiftEntryKit into your Xcode project using Accio, specify the following in your `Package.swift` manifest:
 
 ```swift
-.package(url: "https://github.com/huri000/SwiftEntryKit", .exact("1.1.3"))
+.package(url: "https://github.com/huri000/SwiftEntryKit", .exact("1.2.6"))
 ```
 
 After specifying `"SwiftEntryKit"` as a dependency of the target in which you want to use it, run `accio install`.
@@ -276,7 +273,7 @@ attributes.position = .bottom
 The default value of `position` is `.top`.
 
 #### Precedence
-The precedence attribute of an entry describes the manner in which entries are pushed in. It offers 2 approaches for managing the presentation priority of multiple simultanious entries.
+The precedence attribute of an entry describes the manner in which entries are pushed in. It offers 2 approaches for managing the presentation priority of multiple simultaneous entries.
 
 ##### Override
 If the [display priority](#display-priority) is equal or higher than the currently displayed entry, override it.
@@ -534,7 +531,7 @@ attributes.entryBackground = .gradient(gradient: .init(colors: colors, startPoin
 
 Visual Effect entry background:
 ```Swift
-attributes.entryBackground = .visualEffect(style: .light)
+attributes.entryBackground = .visualEffect(style: .dark)
 ```
 
 The default value of `entryBackground` and `screenBackground` is `.clear`. 
@@ -618,7 +615,7 @@ The entry is being popped animatedly:
 attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.2)))
 ```
 
-The entry is being overriden (Disappears promptly):
+The entry is being overridden (Disappears promptly):
 ```Swift
 attributes.popBehavior = .overridden
 ```
@@ -693,7 +690,7 @@ public struct EKAttributes
 
 You can use one of the presets that come with SwiftEntryKit, doing these 4 simple steps:
 
-1. Create your *EKAttributes* struct and set your preferrable properties.
+1. Create your *EKAttributes* struct and set your preferable properties.
 2. Create *EKNotificationMessage* struct (The Content) and set the content.
 3. Create *EKNotificationMessageView* (The View) and inject *EKNotificationMessage* struct to it.
 4. Display the entry using *SwiftEntryKit* class method.
@@ -852,9 +849,9 @@ attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
 
 The *PullbackAnimation* values (duration, damping & initialSpringVelocity) can be customized as well.
 
-Swipe | Jolt
---- | ---
-![swipe_example](https://github.com/huri000/assets/blob/master/swift-entrykit/swipe.gif) | ![band_example](https://github.com/huri000/assets/blob/master/swift-entrykit/rubber_band.gif)
+Swipe | Jolt |
+--- | --- |
+![swipe_example](https://github.com/huri000/assets/blob/master/swift-entrykit/swipe.gif) | ![band_example](https://github.com/huri000/assets/blob/master/swift-entrykit/rubber_band.gif) |
 
 ### Dealing with safe area:
 *EKAttributes.PositionConstraints.SafeArea* may be used to override the safe area with the entry's content, or to fill the safe area with a background color (like [Toasts](https://github.com/huri000/assets/blob/master/swift-entrykit/toasts.gif) do), or even leave the safe area empty (Like [Floats](https://github.com/huri000/assets/blob/master/swift-entrykit/floats.gif) do).
@@ -892,6 +889,7 @@ Orientation Change Demonstration |
 
 You can tinker with the display mode using a segmented control on presets screen, forcing light and dark modes.
 All the presets are dark mode ready, but only some in the example project demonstrate dark mode capabilities.
+
 ![light_dark](https://github.com/huri000/assets/blob/master/swift-entrykit/dark-light.gif)
 
 ### Swift and Objective-C Interoperability
@@ -906,9 +904,18 @@ Yet, it is pretty easy to integrate SwiftEntryKit into an Objective-C project us
 
 Daniel Huri, huri000@gmail.com
 
+## Donations
+
+Donations can be made by sending either Bitcoin or Ether to the following addresses.
+
+| BTC | ETH |
+| :---: | :---: | 
+| 134TiBiUvVNt7Na5KXEFBSChLdgVDw1Hnr | 0xAe6616181FCdde4793AE749Ce21Cd5Af9333A3E2 |
+| ![btc_address](https://github.com/huri000/assets/blob/master/donate/btc-address.png) | ![eth_address](https://github.com/huri000/assets/blob/master/donate/eth-address.png) |
+
 ## Thank You
 
-Thanks Lily Azar, lilushkaa@gmail.com for those aweome preset icons. 
+Thanks Lily Azar, lilushkaa@gmail.com for those awesome preset icons. 
 
 ## Credits
 
